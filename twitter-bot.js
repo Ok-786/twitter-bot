@@ -58,9 +58,9 @@ const shareCat = async () => {
 
     var stream = T.stream('statuses/filter', { track: 'mango' })
 
-stream.on('tweet', function (tweet) {
-    
-})
+    stream.on('tweet', function (tweet) {
+
+    })
 
 
 
@@ -71,12 +71,35 @@ stream.on('tweet', function (tweet) {
         let returnedB64 = Buffer.from(image.data).toString('base64');
         T.post('media/upload', { media_data: returnedB64 }, uploaded);
 
+
         function uploaded(err, data, response) {
+
+            function randomIntFromInterval(min, max) { // min and max included 
+                return Math.floor(Math.random() * (max - min + 1) + min)
+            }
+
+            const rndInt = randomIntFromInterval(0, 3)
+
+            const message = [
+                {
+                    status: `#pet #cats #cat #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
+                    media_ids: [id]
+                },
+                {
+                    status: `she's cute!!! #pet #cat #cute #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
+                },
+                {
+                    status: `#pet #cats this adorable kitty needs you !😿 ${newCats[0].url}`,
+                },
+                {
+                    status: `Wishing all my friends in Canada a happy Thanksgiving. Please reply with pictures of your feasts (drooling cats optional)`,
+                    media_ids: [id]
+                }
+            ]
+
+
             var id = data.media_id_string;
-            var tweet = {
-                status: `#pet #cat #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
-                media_ids: [id]
-            };
+            var tweet =  message[rndInt];
 
             T.post('statuses/update', tweet, tweeted);
             console.log('done')
