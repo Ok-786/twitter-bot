@@ -10,7 +10,7 @@ var fs = require('fs');
 
 
 const newCatsThisHour = async () => {
-    const hourAgo = new Date(new Date().getTime() - 1000 * 60 * 28).toISOString();
+    const hourAgo = new Date(new Date().getTime() - 1000 * 60 * 45).toISOString();
 
     let catsWithPhotos = []
 
@@ -69,7 +69,7 @@ const shareCat = async () => {
             function uploaded(err, data, response) {
                 var id = data.media_id_string;
                 var tweet = {
-                    status: `#pet #cat #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
+                    status: `#pet #cat #cats #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
                     media_ids: [id]
                 };
 
