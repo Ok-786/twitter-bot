@@ -7,6 +7,8 @@ var twitterClient = new Twitter(config);
 var Twit = require('twit');
 var T = new Twit(config);
 var fs = require('fs');
+
+
 const newCatsThisHour = async () => {
     const hourAgo = new Date(new Date().getTime() - 1000 * 60 * 28).toISOString();
 
@@ -56,36 +58,40 @@ const shareCat = async () => {
 
 
 
+    var stream = T.stream('statuses/filter', { track: 'cat' })
 
+    stream.on('tweet', function (tweet) {
+        if (newCats) {
+            let image = await axios.get(`${newCats[0].photos[0].medium}`, { responseType: 'arraybuffer' });
+            let returnedB64 = Buffer.from(image.data).toString('base64');
+            T.post('media/upload', { media_data: returnedB64 }, uploaded);
+
+            function uploaded(err, data, response) {
+                var id = data.media_id_string;
+                var tweet = {
+                    status: `#pet #cat #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
+                    media_ids: [id]
+                };
+
+                T.post('statuses/update', tweet, tweeted);
+                console.log('done')
+            }
+
+            function tweeted(err, data, response) {
+                if (err) {
+                    console.error(err.message);
+                } else {
+                    console.log("it worked!!!")
+                }
+            }
+        }
+    })
 
 
 
 
     // console.log(newCats[0].photos[0])
-    if (newCats) {
-        let image = await axios.get(`${newCats[0].photos[0].medium}`, { responseType: 'arraybuffer' });
-        let returnedB64 = Buffer.from(image.data).toString('base64');
-        T.post('media/upload', { media_data: returnedB64 }, uploaded);
 
-        function uploaded(err, data, response) {
-            var id = data.media_id_string;
-            var tweet = {
-                status: `#pet #cat #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
-                media_ids: [id]
-            };
-
-            T.post('statuses/update', tweet, tweeted);
-            console.log('done')
-        }
-
-        function tweeted(err, data, response) {
-            if (err) {
-                console.error(err.message);
-            } else {
-                console.log("it worked!!!")
-            }
-        }
-    }
 }
 
 shareCat();
