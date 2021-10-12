@@ -74,6 +74,8 @@ const shareCat = async () => {
 
         function uploaded(err, data, response) {
 
+            var id = data.media_id_string;
+
             function randomIntFromInterval(min, max) { // min and max included 
                 return Math.floor(Math.random() * (max - min + 1) + min)
             }
@@ -87,6 +89,7 @@ const shareCat = async () => {
                 },
                 {
                     status: `she's cute!!! #pet #cat #cute #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
+                    media_ids: [id]
                 },
                 {
                     status: `#pet #cats this adorable kitty needs you !😿 ${newCats[0].url}`,
@@ -98,8 +101,7 @@ const shareCat = async () => {
             ]
 
 
-            var id = data.media_id_string;
-            var tweet =  message[rndInt];
+            var tweet = message[rndInt];
 
             T.post('statuses/update', tweet, tweeted);
             console.log('done')
