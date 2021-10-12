@@ -93,6 +93,7 @@ const shareCat = async () => {
                 },
                 {
                     status: `#pet #cats this adorable kitty needs you !😿 ${newCats[0].url}`,
+                    media_ids: [id]
                 },
                 {
                     status: `Wishing all my friends in Canada a happy Thanksgiving. Please reply with pictures of your feasts (drooling cats optional)`,
