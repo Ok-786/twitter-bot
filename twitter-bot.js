@@ -84,7 +84,7 @@ const shareCat = async () => {
 
             const message = [
                 {
-                    status: `#pet #cats #cat #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 ${newCats[0].url}`,
+                    status: `#pet #cats #cat #adorable #cute #kitten #petfinder I'm looking for a home!😿🙀😿 }`,
                     media_ids: [id]
                 },
                 {
@@ -92,7 +92,7 @@ const shareCat = async () => {
                     media_ids: [id]
                 },
                 {
-                    status: `#pet #cats this adorable kitty needs you !😿 ${newCats[0].url}`,
+                    status: `#pet #cats this adorable kitty needs you, share this picture so she could find a new and warm home. thanks ya all !😿 ${newCats[0].url}`,
                     media_ids: [id]
                 },
                 {
