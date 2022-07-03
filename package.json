@@ -5,7 +5,8 @@
     "node-fetch": "^3.0.0",
     "twit": "^1.1.20",
     "twitter": "^1.7.1",
-    "url-to-image": "^1.0.0"
+    "url-to-image": "^1.0.0",
+    "phantomjs-prebuilt": "2.1.7"
   },
   "name": "twitter-api",
   "version": "1.0.0",
