@@ -6,13 +6,13 @@
     "twit": "^1.1.20",
     "twitter": "^1.7.1",
     "url-to-image": "^1.0.0",
-    "phantomjs-prebuilt": "2.1.7"
+    "phantomjs-prebuilt": "2.1.14"
   },
   "name": "twitter-api",
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
-    "node": "^15.x"
+    "node": "^16.x"
   },
   "scripts": {
     "start": "node twitter-bot.js",
