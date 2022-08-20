@@ -1,4 +1,13 @@
 {
+  "name": "twitter-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0",
     "dotenv": "^10.0.0",
@@ -7,15 +16,5 @@
     "twitter": "^1.7.1",
     "url-to-image": "^1.0.0"
   },
-  "name": "twitter-api",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node twitter-bot.js",
-    "dev": "nodemon twitter-bot.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "description": ""
 }
