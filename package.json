@@ -6,8 +6,7 @@
     "node": "^16.6.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "heroku-postbuild": "npm install && npm run build"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
