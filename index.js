@@ -120,4 +120,4 @@ const shareCat = async () => {
 
 shareCat();
 
-setInterval(shareCat, 1000 * 60 * 120);
+setInterval(shareCat, 1000 * 60 * 720);
